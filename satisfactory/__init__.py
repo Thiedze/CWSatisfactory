@@ -26,7 +26,7 @@ def print_supply_chain(supply_chain):
 if __name__ == "__main__":
     game = Game()
 
-    supply_chain = [game.buildings[0], game.buildings[2], game.buildings[5]]
+    supply_chain = [game.buildings[1], game.buildings[2], game.buildings[5]]
     while True:
         print_supply_chain(supply_chain)
         next_building = get_next_building_for_supply_chain(game.buildings)

@@ -19,17 +19,17 @@ class Game():
 
     def calculate(self, supply_chain):
         for index in range(0, len(supply_chain)):
-            print(supply_chain[index].name)
-
             if index < len(supply_chain) - 1:
-                factor = supply_chain[index].items_per_minute_output() / supply_chain[index + 1].items_per_minute_input()
+                factor = supply_chain[index].items_per_minute_output() / supply_chain[
+                    index + 1].items_per_minute_input()
                 supply_chain[index + 1].count *= factor
 
-            print("count: " + str(supply_chain[index].count))
-            print("items per minute input: " + str(supply_chain[index].items_per_minute_input()))
-            print("items per minute output: " + str(supply_chain[index].items_per_minute_output()))
-            print("\n")
-
+            print(str(supply_chain[index].count) + "x " +
+                  supply_chain[index].name +
+                  " (in:" + str(supply_chain[index].items_per_minute_input()) +
+                  "/out:" + str(supply_chain[index].items_per_minute_output()) + ")")
+            if index < len(supply_chain) - 1:
+                print"||"
 
     def init_buildings(self):
         # id, name, input, output, time, power, input_amount, output_amount
@@ -44,7 +44,7 @@ class Game():
         self.buildings.append(Building(9, "Constructor Cable", 1, 1, 4, 4, 2, 1))
 
     def init_convoyer_belts(self):
-        #n name, items_per_minute
+        # n name, items_per_minute
         self.convoyer_belts.append(ConvoyerBelt("Mk.1", 60))
         self.convoyer_belts.append(ConvoyerBelt("Mk.2", 120))
         self.convoyer_belts.append(ConvoyerBelt("Mk.3", 270))
