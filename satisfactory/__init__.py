@@ -1,9 +1,10 @@
 from satisfactory.game import Game
 
+
 def get_next_building_for_supply_chain(buildings):
     print("\nselect next building for the supply chain:")
     for building in buildings:
-        print(building.id, building.name)
+        print(building.id, building.name, building.recipe)
 
     print("\ncalculate? Enter 0")
     selected_id = input("select an id:\n")
@@ -15,13 +16,15 @@ def get_next_building_for_supply_chain(buildings):
 
     return None
 
+
 def print_supply_chain(supply_chain):
     print("curent supply chain")
     if supply_chain != None and len(supply_chain) > 0:
         for index in range(0, len(supply_chain)):
-            print(supply_chain[index].name)
+            print(supply_chain[index].name + " " + supply_chain[index].recipe)
             if index < len(supply_chain) - 1:
                 print"||"
+
 
 if __name__ == "__main__":
     game = Game()
@@ -36,5 +39,3 @@ if __name__ == "__main__":
             break
         else:
             supply_chain.append(next_building)
-
-

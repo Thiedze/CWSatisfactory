@@ -13,7 +13,7 @@ class Game():
     def print_supply_chain(supply_chain):
         if supply_chain != None and len(supply_chain) > 0:
             for index in range(0, len(supply_chain)):
-                print(supply_chain[index].name)
+                print(supply_chain[index].name + " " + supply_chain[index].recipe)
                 if index < len(supply_chain) - 1:
                     print"||"
 
@@ -25,7 +25,7 @@ class Game():
                 supply_chain[index + 1].count *= factor
 
             print(str(supply_chain[index].count) + "x " +
-                  supply_chain[index].name +
+                  supply_chain[index].name + " " + supply_chain[index].recipe +
                   " (in:" + str(supply_chain[index].items_per_minute_input()) +
                   "/out:" + str(supply_chain[index].items_per_minute_output()) + ")")
             if index < len(supply_chain) - 1:
@@ -33,15 +33,15 @@ class Game():
 
     def init_buildings(self):
         # id, name, input, output, time, power, input_amount, output_amount
-        self.buildings.append(Building(1, "Miner Mk.1", 0, 1, 1, 5, 0, 1))
-        self.buildings.append(Building(2, "Miner Mk.2", 0, 1, 1, 5, 0, 2))
-        self.buildings.append(Building(3, "Smelter Iron Ignot", 1, 1, 2, 4, 1, 1))
-        self.buildings.append(Building(4, "Smelter Copper Ignot", 1, 1, 2, 4, 1, 1))
-        self.buildings.append(Building(5, "Smelter Copper Carterium", 1, 1, 4, 4, 4, 1))
-        self.buildings.append(Building(6, "Constructor Iron Plate", 1, 1, 4, 4, 2, 1))
-        self.buildings.append(Building(7, "Constructor Iron Rod", 1, 1, 4, 4, 1, 1))
-        self.buildings.append(Building(8, "Constructor Wire", 1, 1, 4, 4, 1, 3))
-        self.buildings.append(Building(9, "Constructor Cable", 1, 1, 4, 4, 2, 1))
+        self.buildings.append(Building(1, "Miner Mk.1", "", 0, 1, 1, 5, 0, 1))
+        self.buildings.append(Building(2, "Miner Mk.2", "", 0, 1, 1, 5, 0, 2))
+        self.buildings.append(Building(3, "Smelter", "Iron Ignot", 1, 1, 2, 4, 1, 1))
+        self.buildings.append(Building(4, "Smelter", "Copper Ignot", 1, 1, 2, 4, 1, 1))
+        self.buildings.append(Building(5, "Smelter", "Carterium Ignot", 1, 1, 4, 4, 4, 1))
+        self.buildings.append(Building(6, "Constructor", "Iron Plate", 1, 1, 4, 4, 2, 1))
+        self.buildings.append(Building(7, "Constructor", "Iron Rod", 1, 1, 4, 4, 1, 1))
+        self.buildings.append(Building(8, "Constructor", "Wire", 1, 1, 4, 4, 1, 3))
+        self.buildings.append(Building(9, "Constructor", "Cable", 1, 1, 4, 4, 2, 1))
 
     def init_convoyer_belts(self):
         # n name, items_per_minute

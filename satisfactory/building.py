@@ -1,9 +1,10 @@
 
 class Building():
 
-    def __init__(self, id, name, input, output, time, power, input_amount, output_amount):
+    def __init__(self, id, name, recipe, input, output, time, power, input_amount, output_amount):
         self.id = id
         self.name = name
+        self.recipe = recipe
         self.input = input
         self.output = output
         # time in seconds
